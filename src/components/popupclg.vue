@@ -5,17 +5,17 @@
        <b-modal id="modal-3" title="College Registration" hide-footer>
          <div  class="form-control">  
                 
-        <b-form-group  label="CollegeName" label-for="collegename">
+        <b-form-group  label="Collegename" label-for="collegename">
           <b-form-input id="name"
           name="collegename"
            v-model="college.collegename"
           
          > </b-form-input>
          </b-form-group>
-         <b-form-group label="UserName" label-for="user">
-          <b-form-input id="user"
+         <b-form-group label="Username" label-for="username">
+          <b-form-input id="username"
           name="user"
-           v-model="college.user"
+           v-model="college.username"
          > </b-form-input>
          </b-form-group>
           <b-form-group  label="Password" label-for="password">
@@ -24,18 +24,21 @@
            v-model="college.password"
          > </b-form-input>
          </b-form-group>
-         <b-form-group label="CollegePhoneNumber" label-for="collegephonenumber">
-          <b-form-input id="collegephonenumber"
-          name="collegephonenumber"
-           v-model="college.collegephonenumber"
+         <b-form-group label="Collegenumber" label-for="collegenumber">
+          <b-form-input id="collegenumber"
+          name="collegenumber"
+           v-model="college.collegenumber"
          > </b-form-input>
          </b-form-group>
-          <b-form-group label="CollegePostalAddress" label-for="collegepostaladdress">
-          <b-form-input id="collegepostaladdress"
-          name="collegepostaladdress"
-           v-model="college.collegepostaladdress"
+          <b-form-group label="Collegeaddress" label-for="collegeaddress">
+          <b-form-input id="collegeaddress"
+          name="collegeaddress"
+           v-model="college.collegeaddress"
          > </b-form-input>
          </b-form-group>
+         <b-form-group label="College:">
+                <b-form-select class="form-control" v-model="selected" :options="colleges"></b-form-select>
+            </b-form-group>
           <div class="text-center mt-5 ">
            <b-button  size="sm" id="submit"  variant="outline-success"  @click="putCollege()">Submit</b-button><br>
            <b-button  size="sm" id="submit"  variant="outline-danger"  @click="updatecollege()">Update</b-button><br>
@@ -59,15 +62,24 @@ export default {
     data(){
         return{
              college: {
-              collegeName: "",
+              collegename: "",
               username: "",
               password: "",
-              collegePhoneNumber: "",
-              collegepPostalAddress: ""
+              collegenumber: "",
+              collegeaddress: ""
             },
+            selected: null,
+        options: [
+         
+          { value: 'a', text: 'KLNCIT' },
+          { value: 'b', text: 'Default Selected Option' },
+          { value: 'c', text: 'This is another option' },
+         
+        ]
              
         }
     },
+     
      mounted(){
         // this.getAllStudents();
     },
@@ -77,13 +89,11 @@ export default {
         return new Promise((resolve, reject) => {
             StudentService.putCollege(this.college)
                 .then(response => {
-                    this.college.collegeName ="";
+                    this.college.collegename ="";
                     this.college.username ="";
                     this.college.password ="";
-                    this.college.collegePhoneNumber ="";
-                    this.college.collegepPostalAddress ="";
-                    
-                    
+                    this.college.collegenumber ="";
+                    this.college.collegeaddress ="";              
                     resolve(response);
                 })
                 .catch(err => {

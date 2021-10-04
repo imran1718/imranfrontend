@@ -39,10 +39,10 @@
       <div>
        <PopupClg /> 
     </div> 
-     <!-- <div>
+      <div>
        <PopupStudent /> 
     </div> 
-    <div>
+    <!-- <div>
        <PopupLogin /> 
     </div>  -->
    
@@ -54,14 +54,14 @@
 </template>
 <script>
 import PopupClg from "./popupclg"
-// import PopupStudent from "./popupstudent.vue"
+import PopupStudent from "./popupstudent.vue"
 // import PopupLogin from "./popuplogin.vue"
 
 export default {
   name: "Navbar",
   components: {
     PopupClg, 
-    // PopupStudent,
+    PopupStudent,
     // PopupLogin,
     
   },
