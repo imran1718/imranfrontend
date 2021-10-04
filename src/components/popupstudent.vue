@@ -70,9 +70,9 @@
                 placeholder="Enter your Address"></b-form-input>
                
             </b-form-group><br>
-            <!-- <b-form-group label="student:">
-                <b-form-select class="form-control" v-model="selected" :options="students"></b-form-select>
-            </b-form-group><br> -->
+            <b-form-group label="student:">
+                <b-form-select class="form-control" v-model="student.college" :options="colleges"></b-form-select>
+            </b-form-group><br>
             <div class="text-center">
              <b-button type="submit" variant="outline-success"  @click="putStudent()">Submit</b-button>
               <b-button variant="outline-danger" @click="resetForm()" class="mx-3">Reset</b-button>
@@ -101,8 +101,17 @@ export default {
               password: "",
               mobilenumber: "",
               email: "",
-              address:""
+              address:"",
+              college:""
             },
+             selected: null,
+        colleges: [
+         { value: 'NULL', text: 'Choose' },
+          { value: 'KLNCIT', text: 'KLNCIT' },
+          { value: 'KLNCE', text: 'KLNCE' },
+          { value: 'VIT', text: 'VIT' },
+         
+        ]
              
         }
     },
@@ -120,7 +129,8 @@ export default {
                     this.student.password ="";
                     this.student.mobilenumber ="";
                     this.student.email ="";     
-                    this.student.address="";   
+                    this.student.address="";  
+                    this.student.college="";  
                     resolve(response);
                 })
                 .catch(err => {

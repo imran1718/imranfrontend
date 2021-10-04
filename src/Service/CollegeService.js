@@ -1,6 +1,6 @@
 import axios from 'axios';
-export default{   
-    putStudent: function(student){
+export default{
+    putCollege: function(college){
         var ax = axios.create({
             baseURL: "http://localhost:8080",
         });
@@ -11,7 +11,7 @@ export default{
         };
         return new Promise((resolve, reject) => {
             ax
-                .post("/student/insert", student, config)
+                .post("/college/insert", college, config)
                 .then(response => {
                     resolve(response);
                 })
@@ -19,7 +19,8 @@ export default{
                     reject(err);
                 });
         }); 
+    },   
+    
     }
     
- }
-
+ 

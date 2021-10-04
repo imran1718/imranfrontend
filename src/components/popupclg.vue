@@ -21,12 +21,14 @@
           <b-form-group  label="Password" label-for="password">
           <b-form-input id="password"
           name="password"
+          type="password"
            v-model="college.password"
          > </b-form-input>
          </b-form-group>
          <b-form-group label="Collegenumber" label-for="collegenumber">
           <b-form-input id="collegenumber"
           name="collegenumber"
+          type="number"
            v-model="college.collegenumber"
          > </b-form-input>
          </b-form-group>
@@ -36,9 +38,7 @@
            v-model="college.collegeaddress"
          > </b-form-input>
          </b-form-group>
-         <b-form-group label="College:">
-                <b-form-select class="form-control" v-model="selected" :options="colleges"></b-form-select>
-            </b-form-group>
+        
           <div class="text-center mt-5 ">
            <b-button  size="sm" id="submit"  variant="outline-success"  @click="putCollege()">Submit</b-button><br>
            <b-button  size="sm" id="submit"  variant="outline-danger"  @click="updatecollege()">Update</b-button><br>
@@ -51,7 +51,7 @@
   </div>
 </template>
 <script>
-import StudentService from '../Service/StudentService'
+import CollegeService from '../Service/CollegeService'
 
 
 export default {
@@ -68,14 +68,7 @@ export default {
               collegenumber: "",
               collegeaddress: ""
             },
-            selected: null,
-        options: [
-         
-          { value: 'a', text: 'KLNCIT' },
-          { value: 'b', text: 'Default Selected Option' },
-          { value: 'c', text: 'This is another option' },
-         
-        ]
+           
              
         }
     },
@@ -87,7 +80,7 @@ export default {
    
         putCollege: function(){           
         return new Promise((resolve, reject) => {
-            StudentService.putCollege(this.college)
+            CollegeService.putCollege(this.college)
                 .then(response => {
                     this.college.collegename ="";
                     this.college.username ="";
