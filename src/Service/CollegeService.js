@@ -20,6 +20,52 @@ export default{
                 });
         }); 
     },   
+    getAllColleges: function(){
+        var ax = axios.create({
+            baseURL: "http://localhost:8080",
+        }); 
+        return new Promise((resolve, reject) => {
+            ax({
+                method: 'get',
+                url: '/college/getAll',
+            }).then((response) => {                 
+                resolve(response);
+            }).catch((err) => {
+                reject(err);
+            });
+        });                       
+        
+    },
+    deleteCollege: function(id){
+        var ax = axios.create({
+            baseURL: "http://localhost:8080",
+        }); 
+        return new Promise((resolve, reject) => {
+            ax({
+                method: 'get',
+                url: '/college/delete/' + id,
+            }).then((response) => {                     
+                resolve(response);
+            }).catch((err) => {
+                reject(err);
+            });
+        });             
+    },
+    getCollege: function(id){
+        var ax = axios.create({
+            baseURL: "http://localhost:8080",
+        }); 
+        return new Promise((resolve, reject) => {
+            ax({
+                method: 'get',
+                url: '/college/get/' + id,
+            }).then((response) => {                     
+                resolve(response);
+            }).catch((err) => {
+                reject(err);
+            });
+        });             
+    },    
     
     }
     

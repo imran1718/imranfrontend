@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import HelloWorld from '../components/HelloWorld'
+import Viewstudent from '../components/Viewstudent'
+import Colleges from '../components/Colleges'
 
 
 
@@ -13,6 +15,17 @@ const routes = [
         name: 'HelloWorld',
         component: HelloWorld
       },
+      {
+        path: '/Viewstudent',
+        name: 'Viewstudent',
+        component: Viewstudent
+      },
+      {
+        path: '/Colleges',
+        name: 'ViewCollegest',
+        component: Colleges
+      },
+      
      
     ];
 

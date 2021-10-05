@@ -50,21 +50,20 @@
       <!-- Admin Form End -->
     </template>
 <script>
-import { validationMixin } from 'vuelidate'
+
 export default {
   name: 'Login',
-  mixins: [validationMixin],
+
   data() {
       return {
           selected: '1',
-          role:'',
-          form: {
-          name:null,
-          pass:null,
+          username:'',
+          password:''        
+        
          }
-      };
-    },
-}
+      }
+    }
+
 </script>
 
 
