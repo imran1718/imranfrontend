@@ -31,7 +31,7 @@
             </b-tbody>
          </b-table-simple>
 </b-container>
-<div class="pt-5">
+<div class="pt-5" sticky>
   <Footer />
 </div>
 <div>
