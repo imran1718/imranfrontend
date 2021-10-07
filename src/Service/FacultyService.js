@@ -1,6 +1,6 @@
 import axios from 'axios';
-export default{   
-    putStudent: function(student){
+export default{
+    putFaculty: function(faculty){
         var ax = axios.create({
             baseURL: "http://localhost:8080",
         });
@@ -11,7 +11,7 @@ export default{
         };
         return new Promise((resolve, reject) => {
             ax
-                .post("/student/insert", student, config)
+                .post("/faculty/insert", faculty, config)
                 .then(response => {
                     resolve(response);
                 })
@@ -20,14 +20,14 @@ export default{
                 });
         }); 
     },
-    getAllStudents: function(){
+    getAllFacultys: function(){
         var ax = axios.create({
             baseURL: "http://localhost:8080",
         }); 
         return new Promise((resolve, reject) => {
             ax({
                 method: 'get',
-                url: '/student/getAll',
+                url: '/faculty/getAll',
             }).then((response) => {                 
                 resolve(response);
             }).catch((err) => {
@@ -36,14 +36,14 @@ export default{
         });                       
         
     },
-    deleteStudent: function(id){
+    deleteFaculty: function(id){
         var ax = axios.create({
             baseURL: "http://localhost:8080",
         }); 
         return new Promise((resolve, reject) => {
             ax({
                 method: 'get',
-                url: '/student/delete/' + id,
+                url: '/faculty/delete/' + id,
             }).then((response) => {                     
                 resolve(response);
             }).catch((err) => {
@@ -51,29 +51,4 @@ export default{
             });
         });             
     },
-    loginStudent: function(sl){
-        var axis = axios.create({
-            baseURL: "http://localhost:8080",
-        });
-        let config = {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
-        return new Promise((resolve, reject) => {
-            axis
-                .post("/student/login",sl, config)
-                .then(response => {
-               
-                 
-                    resolve(response);
-                })
-                .catch(err => {
-               
-                    reject(err);
-                });
-        }); 
-    
-    }
- }
-
+}

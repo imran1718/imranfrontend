@@ -4,18 +4,18 @@
       <NavBar />
       <b-container>
         <h1>Approve Institute</h1>
-    <b-table-simple hover small caption-top responsive class="pt-5">
+    <b-table-simple hover responsive   class="table table-striped table-bordered pt-5">
       <b-tr>
       <b-th>Collegename</b-th>
       <b-th>Username</b-th>
       <b-th>Collegenumber</b-th>
       <b-th>Qualification</b-th>
       </b-tr>
-      <b-tr>
-      <b-td>{{college.collegename}}</b-td>
-      <b-td>{{college.username}}</b-td>
-      <b-td>{{college.collegenumber}}</b-td>
-      <b-td>{{college.collegeaddress}}</b-td>    
+      <b-tr v-for="s in colleges" :key="s.id">
+      <b-td>{{s.collegename}}</b-td>
+      <b-td>{{s.username}}</b-td>
+      <b-td>{{s.collegenumber}}</b-td>
+      <b-td>{{s.collegeaddress}}</b-td>    
       </b-tr>
     </b-table-simple>
       </b-container>
@@ -38,31 +38,6 @@ import CollegeService from '../Service/CollegeService'
 
 import NavBar from "./Navbar";
 import Footer from "./Footer.vue"
-  // export default {
-  //      name: "Admin",
-  // components: {
-  //   NavBar,
-  // },
-  //   data() {
-  //     return {
-  //       items: [
-  //         {
-  //           college_id: '1',
-  //           college_name: 'KLNCIT',
-  //           college_status: 'Approved',
-           
-  //         },
-  //         {
-  //          college_id: '1',
-  //           college_name: 'KLNCE',
-  //           college_status: 'Approved',
-
-  //         },
-          
-  //       ]
-  //     }
-  //   }
-  // }
   
 export default {
     name: "Approve",
@@ -78,20 +53,19 @@ export default {
               username: "",             
               collegenumber: "",
               collegeaddress: ""
-              }
+              },
+               colleges:null,
               }
     },
     mounted(){
-        this.getStudent();
+        this.getAllColleges();
     },
     methods:{
-          getCollege: function(id){
-           
+           getAllColleges: function(){          
             return new Promise((resolve, reject) => {
-                 CollegeService.getCollege(id)
-                .then((response) => {
-                  
-                    this.college = response.data;                      
+                CollegeService.getAllColleges()
+                .then((response) => {                    
+                    this.colleges = response.data;                   
                     resolve(response);
                 }).catch((err) => {
                     reject(err);
@@ -103,10 +77,5 @@ export default {
 
 </script>
 <style scoped>
-.jumbo{
-  padding: 2rem 1rem;
-   
-    background-color: #e9ecef;
-    border-radius: .3rem;
-}
+
 </style>

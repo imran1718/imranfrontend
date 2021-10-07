@@ -41,12 +41,13 @@
     </div>
 </template>
 <script>
-import axios from 'axios';
+import StudentService from '../Service/StudentService'
+
 export default {
   name: 'Login',
   data() {
       return {
-          // selected: '1',
+         
           sl:{
             username:'',
             password:''
@@ -55,28 +56,21 @@ export default {
     },
      methods: {
      loginStudent: function(){
-        var axis = axios.create({
-            baseURL: "http://localhost:8080",
-        });
-        let config = {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
         return new Promise((resolve, reject) => {
-            axis
-                .post("/student/login",this.sl, config)
+            StudentService.loginStudent(this.sl)
                 .then(response => {
-                  alert("login successfully")
-                 
+                    alert("login successfully")
+                             
                     resolve(response);
                 })
                 .catch(err => {
                    alert("login failed")
                     reject(err);
                 });
-        }); 
+        });        
+    },    
+       
      }
      }
-}
+
 </script>
