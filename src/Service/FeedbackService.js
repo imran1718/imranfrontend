@@ -40,4 +40,20 @@ export default{
                 });
         }); 
     },   
+    getAllFeedbacks: function(){
+        var ax = axios.create({
+            baseURL: "http://localhost:8080",
+        }); 
+        return new Promise((resolve, reject) => {
+            ax({
+                method: 'get',
+                url: '/studentfeedback/getAll',
+            }).then((response) => {                 
+                resolve(response);
+            }).catch((err) => {
+                reject(err);
+            });
+        });                       
+        
+    },
 }

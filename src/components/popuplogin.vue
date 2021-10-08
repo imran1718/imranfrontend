@@ -42,6 +42,7 @@
 </template>
 <script>
 import StudentService from '../Service/StudentService'
+// import VueCookies from 'vue-cookies'
 
 export default {
   name: 'Login',
@@ -60,11 +61,20 @@ export default {
             StudentService.loginStudent(this.sl)
                 .then(response => {
                     alert("login successfully")
-                             
-                    resolve(response);
+                    // VueCookies.set('name' ,this.sl.username, "1h")                             
+                   localStorage.setItem('name', this.sl.username)
+                   localStorage.setItem('status','Verified')
+                   this.$router.push({name:'Studentlogin'});
+                   this.sl.username="",
+                   this.sl.password=""
+                   resolve(response);
+
                 })
                 .catch(err => {
                    alert("login failed")
+                    localStorage.setItem('status','NotVerified')
+                    this.sl.username="",
+                   this.sl.password=""
                     reject(err);
                 });
         });        

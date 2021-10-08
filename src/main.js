@@ -10,6 +10,15 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+
+import VueCookies from 'vue-cookies'
+Vue.use(VueCookies)
+
+
+import VueLocalStorage from 'vue-localstorage' 
+Vue.use(VueLocalStorage)
+
+
 Vue.use(VueAxios, axios)
 
 // Make BootstrapVue available throughout your project

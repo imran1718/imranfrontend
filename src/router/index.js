@@ -16,6 +16,11 @@ import ManageFaculty from '../components/ManageFaculty'
 import SendFeedback from '../components/SendFeedback'
 import Studentlogin from '../components/Studentlogin'
 import Stufeedback from '../components/Stufeedback'
+import SendRequestclg from '../components/SendRequestclg'
+import Viewcomplaints from '../components/Viewcomplaints'
+
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -55,6 +60,11 @@ const routes = [
         component: Viewstudent
       }, 
       {
+        path: '/Admin/Viewcomplaints',
+        name: 'Viewcomplaints',
+        component: Viewcomplaints
+      }, 
+      {
         path:'/College',
         name:'Collegelogin',
         component:College
@@ -87,17 +97,28 @@ const routes = [
       {
         path:'/Studentlogin',
         name:'Studentlogin',
-        component:Studentlogin
+        component:Studentlogin,        
+        meta:{
+          requiresAuth:true
+        }
       }, 
       {
         path:'/Studentlogin/Stufeedback',
         name:'Stufeedback',
-        component:Stufeedback
+        component:Stufeedback,
+        meta:{
+          requiresAuth:true
+        }
       }, 
-     
-    ];
+      {
+        path:'/Studentlogin/SendRequestclg',
+        name:'SendRequestclg',
+        component:SendRequestclg
 
-      
+      }
+     
+    ];    
+    
     
     
     const router = new VueRouter({
@@ -105,5 +126,20 @@ const routes = [
         // base: process.env.BASE_URL,
         routes
       });
+      router.beforeEach((to,from,next)=>{
+        if(to.meta.requiresAuth){
+                if(localStorage.getItem('status')=='Verified')
+                {
+                       next();
+                }
+                else{
+                        router.push({name:'Studentlogin'})
+                }
+        }
+        else{
+                next();
+        }
+})
       
       export default router;
+ 

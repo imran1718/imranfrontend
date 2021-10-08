@@ -58,6 +58,8 @@ export default {
       }
     },
      methods:{
+       
+       
     insertFeedback: function(){           
         return new Promise((resolve, reject) => {
             FeedbackService.insertFeedback(this.studentfeedback)
@@ -71,9 +73,14 @@ export default {
                     reject(err);
                 });
         });        
-    },    
+    },   
+      
+     }
 }
-}
+//  localStorage.setItem('isStudentlogin','true');
+//        this.$routes.push({name:'Stufeedback'})
+//      },
+
 </script>
 
 <style>

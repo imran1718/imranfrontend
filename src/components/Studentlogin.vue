@@ -38,7 +38,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-         <b-button href="" variant="primary">Go Send Request</b-button>
+         <b-button href="/Studentlogin/SendRequestclg" variant="primary">Go Send Request</b-button>
       </template>
     </b-card>
   </b-col>
