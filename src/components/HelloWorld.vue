@@ -112,6 +112,14 @@ export default {
         Home,
         Footer
   },
+  mounted(){
+   this.logout();
+  },
+  methods:{
+    logout:function(){
+      localStorage.setItem('status','NotVerified')
+    }    
+  }
 }
 </script>
 

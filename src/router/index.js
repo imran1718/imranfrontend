@@ -18,7 +18,7 @@ import Studentlogin from '../components/Studentlogin'
 import Stufeedback from '../components/Stufeedback'
 import SendRequestclg from '../components/SendRequestclg'
 import Viewcomplaints from '../components/Viewcomplaints'
-
+import Downloadarticle from '../components/Downloadarticle'
 
 
 Vue.use(VueRouter)
@@ -66,7 +66,7 @@ const routes = [
       }, 
       {
         path:'/College',
-        name:'Collegelogin',
+        name:'College',
         component:College
       }, 
       {
@@ -103,6 +103,14 @@ const routes = [
         }
       }, 
       {
+        path:'/Studentlogin/Downloadarticle',
+        name:'Downloadarticle',
+        component:Downloadarticle,        
+        meta:{
+          requiresAuth:true
+        }
+      }, 
+      {
         path:'/Studentlogin/Stufeedback',
         name:'Stufeedback',
         component:Stufeedback,
@@ -113,8 +121,10 @@ const routes = [
       {
         path:'/Studentlogin/SendRequestclg',
         name:'SendRequestclg',
-        component:SendRequestclg
-
+        component:SendRequestclg,
+        meta:{
+          requiresAuth:true
+        }
       }
      
     ];    

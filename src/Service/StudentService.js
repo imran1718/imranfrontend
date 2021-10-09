@@ -51,7 +51,7 @@ export default{
             });
         });             
     },
-    loginStudent: function(sl){
+    loginStudent: function(logobj){
         var axis = axios.create({
             baseURL: "http://localhost:8080",
         });
@@ -62,7 +62,7 @@ export default{
         };
         return new Promise((resolve, reject) => {
             axis
-                .post("/student/login",sl, config)
+                .post("/student/login",logobj, config)
                 .then(response => {
                
                  

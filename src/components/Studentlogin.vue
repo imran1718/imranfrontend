@@ -70,7 +70,7 @@
 </b-card-group>
 </div>
 <div class="text-center pt-5">
-  <b-button href="/" variant="btn btn-outline-success">Logout</b-button>
+  <b-button href="/" @click="logout()" variant="btn btn-outline-success">Logout</b-button>
 </div>
 </b-container>
 <div class="pt-3">
@@ -82,11 +82,19 @@
 import NavBar from "./Navbar";
 import Footer from "./Footer";
 export default {
-  name: "Student",
+  name: "Studentlogin",
   components: {
     NavBar,
     Footer
   },
+   mounted(){
+  //  this.logout();
+  },
+  methods:{
+    logout:function(){
+      localStorage.setItem('status','NotVerified')
+    }    
+  }
 };
 </script>
 <style scoped>

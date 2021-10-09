@@ -102,6 +102,14 @@ export default {
     Footer,
     Updatecollege
   },
+  mounted(){
+   this.logout();
+  },
+  methods:{
+    logout:function(){
+      localStorage.setItem('status','NotVerified')
+    }    
+  }
 };
 </script>
 <style scoped>

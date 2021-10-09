@@ -65,7 +65,31 @@ export default{
                 reject(err);
             });
         });             
-    },    
+    },  
+    loginCollege: function(logobj){
+        var axis = axios.create({
+            baseURL: "http://localhost:8080",
+        });
+        let config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        return new Promise((resolve, reject) => {
+            axis
+                .post("/college/login",logobj, config)
+                .then(response => {
+               
+                 
+                    resolve(response);
+                })
+                .catch(err => {
+               
+                    reject(err);
+                });
+        }); 
+    
+    }  
     
     }
     
