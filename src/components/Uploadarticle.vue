@@ -1,6 +1,11 @@
 <template>
   <div>
       <NavBar />
+      <b-container>
+       <div class=" mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/College" pill variant="primary" @click="back()">
+          <b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>
       <div class="pt-3"> 
          <h1> Upload Article</h1>
       </div>
@@ -17,7 +22,7 @@
 
   
   </div>
-  
+      </b-container>
   <div  class="mt-5 pt-5">
       <Footer />
   </div>
@@ -38,6 +43,16 @@ export default {
       return {
         file1: null
       }
+     },
+     mounted(){
+        
+      
+    },
+     methods:{
+       
+      back:function(){
+      localStorage.setItem('status','Verified')
+    } 
      }
 
 }

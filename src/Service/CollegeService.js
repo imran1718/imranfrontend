@@ -2,7 +2,7 @@ import axios from 'axios';
 export default{
     putCollege: function(college){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         });
         let config = {
             headers: {
@@ -22,7 +22,7 @@ export default{
     },   
     getAllColleges: function(){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         }); 
         return new Promise((resolve, reject) => {
             ax({
@@ -38,7 +38,7 @@ export default{
     },
     deleteCollege: function(id){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         }); 
         return new Promise((resolve, reject) => {
             ax({
@@ -53,7 +53,7 @@ export default{
     },
     getCollege: function(id){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         }); 
         return new Promise((resolve, reject) => {
             ax({
@@ -68,7 +68,7 @@ export default{
     },  
     loginCollege: function(logobj){
         var axis = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         });
         let config = {
             headers: {

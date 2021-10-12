@@ -14,7 +14,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-         <b-button href="College/Uploadarticle" variant="primary">Go Upload Articles</b-button>
+         <b-button href="College/Uploadarticle"  variant="primary">Go Upload Articles</b-button>
       </template>
     </b-card>
   </b-col>
@@ -25,23 +25,24 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-        <b-button href="College/FacultyMangement" variant="primary">Go Faculty Management</b-button>
+        <b-button href="College/FacultyManagement" variant="primary">Go Faculty Management</b-button>
       </template>
     </b-card>
   </b-col>
 </b-row>
 <b-row class="pt-5" >
-  <b-col sm-6>
+  <!-- <b-col sm-6>
     <b-card title="Send Request" img-src="student.jpg" img-height="300px"  img-width="300px"  img-alt="Image" img-top>
       <b-card-text>
         This is a wider card with supporting text below as a natural lead-in to additional content.
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-         <b-button href="College/SendRequest" variant="primary">Go Send Request</b-button>
+         <b-button href="College/SendRequest
+         " variant="primary">Go Send Request</b-button>
       </template>
     </b-card>
-  </b-col>
+  </b-col> -->
   <b-col sm-6>
     <b-card title="Update Profile" img-src="complaint.jpeg" img-height="300px"  img-width="300px" img-alt="Image" img-top>
       <b-card-text>
@@ -61,7 +62,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-        <b-button href="College/Viewrequest" variant="primary">Go View request</b-button>
+        <b-button href="College/Viewrequestclg"  variant="primary">Go View request</b-button>
       </template>
     </b-card>
   </b-col>
@@ -81,7 +82,8 @@
 </b-card-group>
 </div>
 <div class="text-center pt-5">
-  <b-button href="/" variant="btn btn-outline-success">Logout</b-button>
+  <b-button href="/" @click="logout()" variant="btn btn-outline-success">
+  <b-icon icon="power"></b-icon>Logout</b-button>
 </div>
 </b-container>
 <Updatecollege />
@@ -103,12 +105,13 @@ export default {
     Updatecollege
   },
   mounted(){
-   this.logout();
+  //  this.logout();
   },
   methods:{
     logout:function(){
       localStorage.setItem('status','NotVerified')
-    }    
+    }    ,
+      
   }
 };
 </script>

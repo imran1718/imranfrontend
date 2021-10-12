@@ -3,6 +3,10 @@
       <header>
       <NavBar />
       <b-container>
+        <div class=" mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/Admin" pill variant="primary" @click="back()">
+          <b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>
         <h1>Approve Institute</h1>
     <b-table-simple hover responsive   class="table table-striped table-bordered pt-5">
       <b-tr>
@@ -59,8 +63,13 @@ export default {
     },
     mounted(){
         this.getAllColleges();
+       
     },
     methods:{
+     
+      back:function(){
+      localStorage.setItem('status','Verified')
+    } ,
            getAllColleges: function(){          
             return new Promise((resolve, reject) => {
                 CollegeService.getAllColleges()

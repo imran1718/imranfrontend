@@ -2,7 +2,7 @@ import axios from 'axios';
 export default{
     putFeedback: function(collegefeedback){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         });
         let config = {
             headers: {
@@ -22,7 +22,7 @@ export default{
     },   
     insertFeedback: function(studentfeedback){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         });
         let config = {
             headers: {
@@ -42,12 +42,28 @@ export default{
     },   
     getAllFeedbacks: function(){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         }); 
         return new Promise((resolve, reject) => {
             ax({
                 method: 'get',
                 url: '/studentfeedback/getAll',
+            }).then((response) => {                 
+                resolve(response);
+            }).catch((err) => {
+                reject(err);
+            });
+        });                       
+        
+    },
+    getAllcFeedbacks: function(){
+        var ax = axios.create({
+            baseURL: "http://localhost:9090",
+        }); 
+        return new Promise((resolve, reject) => {
+            ax({
+                method: 'get',
+                url: '/collegefeedback/getAll',
             }).then((response) => {                 
                 resolve(response);
             }).catch((err) => {

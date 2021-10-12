@@ -1,8 +1,12 @@
 <template>
 <div>
-<b-container>
+
       <NavBar />
-  <b-table-simple hover responsive   class="table table-striped table-bordered" >
+<b-container>
+     <div class=" mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/Admin" pill variant="primary" @click="back()"><b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>
+  <b-table-simple hover responsive   class="table table-striped table-bordered pt-2" >
             <b-thead>
                 <b-tr>
                     <b-th>Student Name</b-th>
@@ -59,8 +63,13 @@ export default {
     },
     mounted(){
         this.getAllStudents();
+      
     },
     methods:{
+       
+        back:function(){
+      localStorage.setItem('status','Verified')
+    } ,
        getAllStudents: function(){          
             return new Promise((resolve, reject) => {
                 StudentService.getAllStudents()

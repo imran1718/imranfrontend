@@ -14,7 +14,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-         <b-button href="Admin/Approve" variant="primary">Go Approve Institute</b-button>
+         <b-button href="Admin/Approve"  variant="primary">Go Approve Institute</b-button>
       </template>
     </b-card>
   </b-col>
@@ -38,7 +38,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-         <b-button href="Admin/Viewstudent" variant="primary">Go View Student</b-button>
+         <b-button href="Admin/Viewstudent"  variant="primary">Go View Student</b-button>
       </template>
     </b-card>
   </b-col>
@@ -49,14 +49,15 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-        <b-button href="Admin/Viewcomplaints" variant="primary">Go View Compalints</b-button>
+        <b-button href="Admin/Viewcomplaints"  variant="primary">Go View Compalints</b-button>
       </template>
     </b-card>
   </b-col>
 </b-row>    
 </b-card-group>
 <div class="text-center pt-5">
-  <b-button href="/" variant="btn btn-outline-success">Logout</b-button>
+  <b-button href="/" @click="logout()" variant="btn btn-outline-success"> 
+  <b-icon icon="power"></b-icon>Logout</b-button>
 </div>
 </div>
 </b-container>
@@ -76,12 +77,13 @@ export default {
     Footer,    
   },
   mounted(){
-   this.logout();
+  //  this.logout();
   },
   methods:{
     logout:function(){
-      localStorage.setItem('status','NotVerified')
-    }    
+      localStorage.setItem('role','Admin')
+    },
+     
   }
 };
 </script>

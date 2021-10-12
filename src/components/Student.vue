@@ -14,7 +14,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-         <b-button href="" variant="primary">Go Download Articles</b-button>
+         <b-button href="/Student/Downloadarticle"  variant="primary">Go Download Articles</b-button>
       </template>
     </b-card>
   </b-col>
@@ -25,7 +25,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-        <b-button href="" variant="primary">Go Update Profile</b-button>
+        <b-button href="#" v-b-modal.update-1 variant="primary">Go Update Profile</b-button>
       </template>
     </b-card>
   </b-col>
@@ -38,7 +38,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-         <b-button href="/Studentlogin/SendRequestclg" variant="primary">Go Send Request</b-button>
+         <b-button href="/Student/SendRequestclg"  variant="primary">Go Send Request</b-button>
       </template>
     </b-card>
   </b-col>
@@ -49,7 +49,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-        <b-button href="" variant="primary">Go View request</b-button>
+        <b-button href="/Student/Viewrequest"  variant="primary">Go View request</b-button>
       </template>
     </b-card>
   </b-col>
@@ -62,7 +62,7 @@
         This content is a little bit longer.
       </b-card-text>
       <template #footer>
-        <b-button href="/Studentlogin/Stufeedback" variant="primary">Go Send Feedback</b-button>
+        <b-button href="/Student/Stufeedback"  variant="primary">Go Send Feedback</b-button>
       </template>
     </b-card>
   </b-col>
@@ -70,22 +70,28 @@
 </b-card-group>
 </div>
 <div class="text-center pt-5">
-  <b-button href="/" @click="logout()" variant="btn btn-outline-success">Logout</b-button>
+  <b-button href="/" @click="logout()" variant="btn btn-outline-success">
+  <b-icon icon="power"></b-icon>Logout</b-button>
 </div>
 </b-container>
 <div class="pt-3">
  <Footer />
 </div>
+<updatestudent/>
 </div>
 </template>
 <script>
 import NavBar from "./Navbar";
 import Footer from "./Footer";
+import Updatestudent from "./Updatestudent";
+
 export default {
-  name: "Studentlogin",
+  name: "Student",
   components: {
     NavBar,
-    Footer
+    Footer,
+    Updatestudent
+    
   },
    mounted(){
   //  this.logout();
@@ -93,7 +99,8 @@ export default {
   methods:{
     logout:function(){
       localStorage.setItem('status','NotVerified')
-    }    
+    },
+    
   }
 };
 </script>

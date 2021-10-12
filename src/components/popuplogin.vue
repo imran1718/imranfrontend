@@ -22,15 +22,26 @@
               </b-form-group>
   </div>
        <b-form-group id="username" label="User Name" >
-          <b-form-input  v-model="logobj.username" 
+          <b-form-input  
+           v-model.trim="$v.logobj.username.$model" :class="{'is-invalid':$v.logobj.username.$error, 'is-valid':!$v.logobj.username.$invalid}"
          >
            </b-form-input>
+           <!-- v-model.trim="logobj.username"  -->
        </b-form-group>
+      
+
+
+
           <b-form-group id="password" label="Password" >
-          <b-form-input v-model="logobj.password" type="password"
+          <b-form-input
+         v-model.trim="$v.logobj.password.$model" :class="{'is-invalid':$v.logobj.password.$error, 'is-valid':!$v.logobj.password.$invalid}"
+           type="password"
           >
            </b-form-input>
        </b-form-group>
+      
+
+
           <div class="pt-5 ">
            <b-button   class="form-control " type="submit"  variant="outline-success" @click="login()">Submit</b-button>
           </div>
@@ -45,7 +56,7 @@ import CollegeService from '../Service/CollegeService';
 import StudentService from '../Service/StudentService'
 import AdminService from '../Service/AdminService'
 // import VueCookies from 'vue-cookies'
-
+import { required, minLength,maxLength} from "vuelidate/lib/validators";
 export default {
   name: 'Login',
   data() {
@@ -59,17 +70,40 @@ export default {
           
       };
     },
+    validations: {  
+      logobj:{     
+            username: {
+                required,
+                minLength: minLength(3),
+                maxLength: maxLength(25)
+            },
+            password: {
+                required,
+                minLength: minLength(4),                
+            } 
+      }       
+    },
      methods: {
      login: function(){
+        this.$v.$touch()
+                if(this.$v.$invalid){
+                    this.submitstatus = "FAIL"
+                }
+                else {
+                    this.submitstatus = "SUCCESS"
+       
     if(this.selected==3)
+    
         return new Promise((resolve, reject) => {
             StudentService.loginStudent(this.logobj)
                 .then(response => {
                     alert("login successfully")
+                   
                     // VueCookies.set('name' ,this.login.username, "1h")                             
                    localStorage.setItem('name', this.logobj.username)
                    localStorage.setItem('status','Verified')
-                   this.$router.push({name:'Studentlogin'});
+                    localStorage.setItem('role','Student')
+                   this.$router.push({name:'Student'});
                    this.logobj.username="",
                    this.logobj.password=""
                    resolve(response);
@@ -91,6 +125,7 @@ export default {
                     // VueCookies.set('name' ,this.login.username, "1h")                             
                    localStorage.setItem('name', this.logobj.username)
                    localStorage.setItem('status','Verified')
+                   localStorage.setItem('role','Admin')
                    this.$router.push({name:'Admin'});
                    this.logobj.username="",
                    this.logobj.password=""
@@ -113,6 +148,8 @@ export default {
                     // VueCookies.set('name' ,this.login.username, "1h")                             
                    localStorage.setItem('name', this.logobj.username)
                    localStorage.setItem('status','Verified')
+                   localStorage.setItem('role','College')
+                   alert("login successfully")
                    this.$router.push({name:'College'});
                    this.logobj.username="",
                    this.logobj.password=""
@@ -127,34 +164,11 @@ export default {
                     reject(err);
                 });
         });        
-    },   
+    }
+     }   
    
        
      }
      }
 
 </script>
-// loginStudent: function(){
-       
-//         return new Promise((resolve, reject) => {
-//             StudentService.loginStudent(this.login)
-//                 .then(response => {
-//                     alert("login successfully")
-//                     // VueCookies.set('name' ,this.login.username, "1h")                             
-//                    localStorage.setItem('name', this.login.username)
-//                    localStorage.setItem('status','Verified')
-//                    this.$router.push({name:'Studentlogin'});
-//                    this.login.username="",
-//                    this.login.password=""
-//                    resolve(response);
-
-//                 })
-//                 .catch(err => {
-//                    alert("login failed")
-//                     localStorage.setItem('status','NotVerified')
-//                     this.login.username="",
-//                    this.login.password=""
-//                     reject(err);
-//                 });
-//         });        
-//     },    

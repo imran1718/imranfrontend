@@ -2,7 +2,7 @@ import axios from 'axios';
 export default{
 loginAdmin: function(logobj){
     var axis = axios.create({
-        baseURL: "http://localhost:8080",
+        baseURL: "http://localhost:9090",
     });
     let config = {
         headers: {

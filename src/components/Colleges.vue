@@ -1,7 +1,12 @@
 <template>
   <div>
-<b-container>
+
       <NavBar />
+<b-container>
+     <div class=" mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/Admin" pill variant="primary" @click="back()">
+          <b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>    
       <div>
           <h1 class="text-center">Colleges</h1>
       </div>
@@ -92,8 +97,13 @@ export default {
     },
     mounted(){
         this.getAllColleges();
+        
     },
     methods:{
+      
+        back:function(){
+      localStorage.setItem('status','Verified')
+    } ,
        getAllColleges: function(){          
             return new Promise((resolve, reject) => {
                 CollegeService.getAllColleges()

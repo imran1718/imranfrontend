@@ -1,8 +1,12 @@
 <template>
   <div>
-    <b-container>
       <NavBar />
-  <b-table-simple hover responsive   class="table table-striped table-bordered" >
+    <b-container>
+       <div class="  d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/College/FacultyManagement" pill variant="primary" @click="back()">
+          <b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>
+  <b-table-simple hover responsive   class="pt-3 table table-striped table-bordered" >
             <b-thead>
                 <b-tr>
                     <b-th>Faculty Name</b-th>
@@ -57,6 +61,9 @@ export default {
         this.getAllFacultys();
     },
     methods:{
+         back:function(){
+      localStorage.setItem('status','Verified')
+    } ,
        getAllFacultys: function(){          
             return new Promise((resolve, reject) => {
                 FacultyService.getAllFacultys()

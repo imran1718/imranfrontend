@@ -2,6 +2,10 @@
     <div>
         <NavBar />
         <b-container>
+          <div class=" mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/Student" pill variant="primary" @click="back()">
+          <b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>
         <h2>Send Request</h2>
 
           <b-form-group   label="Name" >
@@ -65,6 +69,9 @@ export default {
       }
   },
    methods:{
+     back:function(){
+      localStorage.setItem('status','Verified')
+    },
     putSendrequest: function(){           
         return new Promise((resolve, reject) => {
             RequestService.insertSendrequest(this.sendrequest)

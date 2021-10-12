@@ -1,9 +1,9 @@
 <template>
 
-<!-- Student REGISTARTION FORM START -->
+
 
 <div >
-       <b-modal id="modal-2" title="Student Registration" hide-footer>
+       <b-modal id="update-1" title="Update Student" hide-footer>
          <div class="control">
 
             <b-form-group label="First name:" label-for="firstname">
@@ -115,13 +115,13 @@
 
 
             <div class="text-center">
-             <b-button type="submit" variant="outline-success"  @click="putStudent()">Submit</b-button>
-              <b-button  type="submit" variant="outline-danger" @click="resetForm()" class="mx-3" >Reset</b-button>
+             <b-button type="submit" variant="outline-success"  @click="putStudent()">Update</b-button>
+             
             </div>
          </div>
        </b-modal>
     </div>
-      <!-- Student REGISTARTION FORM END       -->
+
 
 </template>
 <script>

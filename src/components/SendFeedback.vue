@@ -2,6 +2,10 @@
   <div>
       <NavBar />
       <b-container >
+        <div class=" mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/College" pill variant="primary" @click="back()">
+          <b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>
       <div>
       <h2>Send Feedback</h2>
       </div>
@@ -57,7 +61,15 @@ export default {
         ]
       }
     },
+    mounted(){
+       
+       
+    },
      methods:{
+      
+         back:function(){
+      localStorage.setItem('status','Verified')
+    },
     putFeedback: function(){           
         return new Promise((resolve, reject) => {
             FeedbackService.putFeedback(this.collegefeedback)

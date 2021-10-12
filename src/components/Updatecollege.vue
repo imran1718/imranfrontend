@@ -76,7 +76,7 @@ export default {
         }
     },
     mounted(){
-        this.getAllcolleges();
+        // this.getAllcolleges();
     },
     methods:{
           getCollege: function(id){

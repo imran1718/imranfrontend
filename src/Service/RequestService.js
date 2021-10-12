@@ -3,7 +3,7 @@ export default{
 
     insertSendrequest: function(sendrequest){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         });
         let config = {
             headers: {
@@ -20,5 +20,21 @@ export default{
                     reject(err);
                 });
         }); 
+    },
+    getAllsendrequests: function(){
+        var ax = axios.create({
+            baseURL: "http://localhost:9090",
+        }); 
+        return new Promise((resolve, reject) => {
+            ax({
+                method: 'get',
+                url: '/sendrequest/getAll',
+            }).then((response) => {                 
+                resolve(response);
+            }).catch((err) => {
+                reject(err);
+            });
+        });                       
+        
     },   
 }

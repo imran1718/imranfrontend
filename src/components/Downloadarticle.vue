@@ -3,6 +3,10 @@
       <header>
       <NavBar />
       <b-container>
+        <div class=" mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <b-button href="/Student" pill variant="primary" >
+          <b-icon icon="backspace-fill"></b-icon>Back</b-button>
+        </div>
         <h1>Download Article</h1>
     <b-table-simple hover responsive   class="table table-striped table-bordered pt-5">
       <b-tr>
@@ -10,12 +14,11 @@
       <b-th>Filename</b-th>
       <b-th>Download</b-th>
       
-      </b-tr>
-      <b-tr v-for="s in colleges" :key="s.id">
+      </b-tr>  
+      <b-tr>   
       <b-td>1</b-td>
       <b-td>pathandcls.txt</b-td>
-      <b-td><a>Download</a></b-td>
-    
+      <b-td><a href="">Download</a></b-td>    
       </b-tr>
     </b-table-simple>
       </b-container>
@@ -39,6 +42,9 @@ export default {
         Footer,
   
        
+    },
+    methods:{
+     
     }
 
 }

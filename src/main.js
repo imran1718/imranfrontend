@@ -10,6 +10,8 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 
 import VueCookies from 'vue-cookies'
 Vue.use(VueCookies)

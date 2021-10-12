@@ -2,7 +2,7 @@ import axios from 'axios';
 export default{
     putFaculty: function(faculty){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         });
         let config = {
             headers: {
@@ -22,7 +22,7 @@ export default{
     },
     getAllFacultys: function(){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         }); 
         return new Promise((resolve, reject) => {
             ax({
@@ -38,7 +38,7 @@ export default{
     },
     deleteFaculty: function(id){
         var ax = axios.create({
-            baseURL: "http://localhost:8080",
+            baseURL: "http://localhost:9090",
         }); 
         return new Promise((resolve, reject) => {
             ax({
