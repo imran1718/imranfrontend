@@ -89,7 +89,27 @@ export default{
                 });
         }); 
     
-    }  
+    }  ,
+    updateCollege: function(college){
+        var ax = axios.create({
+            baseURL: "http://localhost:9090",
+        });
+        let config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        return new Promise((resolve, reject) => {
+            ax
+                .post("/college/update", college, config)
+                .then(response => {
+                    resolve(response);
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        });
+    },
     
     }
     

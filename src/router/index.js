@@ -9,7 +9,7 @@ import Viewstudent from '../components/Viewstudent'
 import Colleges from '../components/Colleges'
 import Approve from '../components/Approve'
 import College from '../components/College'
-import Updatecollege from '../components/Updatecollege'
+
 import Uploadarticle from '../components/Uploadarticle'
 import FacultyManagement from '../components/FacultyManagement'
 import ManageFaculty from '../components/ManageFaculty'
@@ -91,15 +91,7 @@ const routes = [
           role : 'College'
         }
       }, 
-      {
-        path:'/College/Updatecollege',
-        name:'Updatecollege',
-        component:Updatecollege,
-        meta:{
-          requiresAuth:true,
-          role : 'College'
-        }
-      },   
+      
       {
         path:'/College/Uploadarticle',
         name:'Uploadarticle',

@@ -98,7 +98,8 @@ export default {
             StudentService.loginStudent(this.logobj)
                 .then(response => {
                     alert("login successfully")
-                   
+                    this.id = response.data;
+                   localStorage.setItem('studentId', this.id);
                     // VueCookies.set('name' ,this.login.username, "1h")                             
                    localStorage.setItem('name', this.logobj.username)
                    localStorage.setItem('status','Verified')
@@ -122,6 +123,8 @@ export default {
             AdminService.loginAdmin(this.logobj)
                 .then(response => {
                     alert("login successfully")
+                    this.id = response.data;
+                   localStorage.setItem('adminId', this.id);
                     // VueCookies.set('name' ,this.login.username, "1h")                             
                    localStorage.setItem('name', this.logobj.username)
                    localStorage.setItem('status','Verified')
@@ -145,6 +148,8 @@ export default {
             CollegeService.loginCollege(this.logobj)
                 .then(response => {
                     alert("login successfully")
+                    this.id = response.data;
+                   localStorage.setItem('collegeId', this.id);
                     // VueCookies.set('name' ,this.login.username, "1h")                             
                    localStorage.setItem('name', this.logobj.username)
                    localStorage.setItem('status','Verified')
